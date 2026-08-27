@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valuación de Maquinaria, Equipos e Instalaciones Mecánicas | Miguel Camacaro Ediciones</title>
+  <meta name="description" content="Curso Online: Valuación de Maquinaria, Equipos e Instalaciones Mecánicas según los Principios de Erich Heideck. Prof. M.Sc. Miguel Camacaro Pérez.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- PDF.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+  <style>
+    :root {
+      --bg-dark: #070c18;
+      --bg-card: #0f172a;
+      --border-card: rgba(255, 255, 255, 0.12);
+      --royal-blue: #0070ba;
+      --royal-gold: #d97706;
+      --accent-gold: #f59e0b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --font-title: 'Cinzel', serif;
+      --font-reading: 'Literata', Georgia, serif;
+      --font-ui: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-ui);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Top Navigation Bar */
+    header {
+      background: rgba(7, 12, 24, 0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-card);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 0.75rem 0;
+    }
+
+    .nav-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .logo-container {
+      background: #ffffff;
+      padding: 4px 8px;
+      border-radius: 8px;
+      border: 2px solid var(--accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    .brand-logo img {
+      height: 52px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-text .name {
+      font-family: var(--font-title);
+      font-weight: 900;
+      font-size: 1.1rem;
+      letter-spacing: 1.5px;
+      color: var(--accent-gold);
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .brand-text .sub {
+      font-size: 0.75rem;
+      color: #e2e8f0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.1rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-gold);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #b45309, #d97706);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(217, 119, 6, 0.6);
+      background: linear-gradient(135deg, #d97706, #f59e0b);
+    }
+
+    .btn-sim {
+      background: linear-gradient(135deg, #047857, #059669);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4);
+    }
+
+    .btn-sim:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(5, 150, 105, 0.6);
+      background: linear-gradient(135deg, #059669, #10b981);
+    }
+
+    .btn-donate {
+      background: linear-gradient(135deg, #1d4ed8, #2563eb);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-donate:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      border: 1px solid var(--border-card);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--accent-gold);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 4rem 0 3.5rem;
+      background: radial-gradient(circle at 50% 10%, #172554 0%, #070c18 80%);
+      border-bottom: 1px solid var(--border-card);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .badge-editorial {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-title {
+      font-family: var(--font-title);
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      color: #ffffff;
+    }
+
+    .hero-title span {
+      color: var(--accent-gold);
+    }
+
+    .hero-lead {
+      font-family: var(--font-reading);
+      font-size: 1.1rem;
+      color: #cbd5e1;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Course Banner Card */
+    .course-banner-card {
+      background: linear-gradient(145deg, #1e293b, #0f172a);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 1.2rem;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(29, 78, 216, 0.25);
+    }
+
+    .course-banner-card img.banner-art {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .metadata-strip {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 0.8rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-align: left;
+    }
+
+    .metadata-strip strong {
+      color: #e2e8f0;
+    }
+
+    /* Content Sections */
+    .section-block {
+      padding: 4.5rem 0;
+      border-bottom: 1px solid var(--border-card);
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-head h2 {
+      font-family: var(--font-title);
+      font-size: 2.2rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-head p {
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Author Profile */
+    .author-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 20px;
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .author-photo-frame {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 3px solid var(--accent-gold);
+      padding: 6px;
+      margin: 0 auto;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #1e293b;
+    }
+
+    .author-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .author-info h3 {
+      font-family: var(--font-title);
+      font-size: 1.8rem;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+
+    .author-info .degree {
+      color: #60a5fa;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .author-bio {
+      font-family: var(--font-reading);
+      font-size: 1.05rem;
+      color: #cbd5e1;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Tools & Videos Grid */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .tool-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 14px;
+      padding: 1.8rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-gold);
+      box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.2);
+    }
+
+    .tool-card h4 {
+      font-size: 1.15rem;
+      color: #fff;
+      margin-bottom: 0.8rem;
+    }
+
+    .tool-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .tool-btn {
+      background: linear-gradient(135deg, #1e3a8a, #1d4ed8);
+      color: #ffffff;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: inline-block;
+    }
+
+    /* Videos Grid */
+    .videos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-card);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Multi-PDF Reader Viewport */
+    .reader-section {
+      padding: 3rem 0 5rem;
+      background: #050811;
+    }
+
+    .reader-frame {
+      background: #0f172a;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 18px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 90vh;
+      position: relative;
+    }
+
+    .reader-toolbar {
+      background: #070c18;
+      padding: 0.75rem 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .reader-doc-switch {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .reader-controls-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .zoom-label {
+      font-weight: 700;
+      color: var(--accent-gold);
+      font-size: 0.85rem;
+      min-width: 50px;
+      text-align: center;
+    }
+
+    .reader-stage {
+      flex: 1;
+      background: #0b0f19;
+      overflow: auto;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      position: relative;
+      padding: 1.5rem;
+    }
+
+    .book-spread {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.85);
+      background: #ffffff;
+      border-radius: 4px;
+      position: relative;
+      margin: auto;
+    }
+
+    .book-spread.double-mode::after {
+      content: "";
+      position: absolute;
+      top: 0; bottom: 0; left: 50%;
+      width: 14px;
+      transform: translateX(-50%);
+      background: linear-gradient(to right, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.45) 45%, rgba(255,255,255,0.08) 50%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.2) 100%);
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .page-canvas {
+      display: block;
+      width: auto;
+      height: auto;
+    }
+
+    .reader-footer {
+      background: #070c18;
+      padding: 0.75rem 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .reader-loader {
+      position: absolute;
+      inset: 0;
+      background: #0f172a;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 20;
+      transition: opacity 0.3s ease;
+    }
+
+    .spinner {
+      width: 45px;
+      height: 45px;
+      border: 3px solid rgba(255,255,255,0.1);
+      border-top-color: var(--accent-gold);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 1rem;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    footer {
+      border-top: 1px solid var(--border-card);
+      padding: 3rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      background: var(--bg-dark);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .author-card, .videos-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .author-photo-frame { margin-bottom: 1.5rem; }
+      .book-spread::after, #canvas-r { display: none !important; }
+      .hero-btns { justify-content: center; }
+      .nav-links { display: none; }
+      .reader-frame { height: 80vh; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-wrap">
+      <a href="#" class="brand-logo">
+        <div class="logo-container">
+          <img 
+            src="LogoMCE_2.png" 
+            alt="Miguel Camacaro Ediciones" 
+            onerror="this.onerror=null; this.src='LogoMCE.png';">
+        </div>
+        <div class="brand-text">
+          <span class="name">MIGUEL CAMACARO</span>
+          <span class="sub">EDICIONES • LIBROS PREMIUM</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="#curso">El Curso</a>
+        <a href="#herramientas">Herramientas</a>
+        <a href="#autor">El Profesor</a>
+        <a href="#lector" class="btn btn-gold">📖 Lecturas Online</a>
+        <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-donate">☕ Donar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="curso">
+      <div class="container hero-grid">
+        <div>
+          <span class="badge-editorial">Módulo Histórico y Rectificación Documental</span>
+          <h1 class="hero-title">Valuación de <span>Máquinas y Equipos Industriales</span></h1>
+          <p class="hero-lead">
+            Descubra las bases fundamentales de la valuación mecánica a través de una revisión técnica y documental rigurosa. Un recorrido especializado por el procedimiento original de Erich Heideck (1935), integrando el rigor metodológico histórico con el potencial de la Inteligencia Artificial Generativa.
+          </p>
+          <div class="hero-btns">
+            <a href="#lector" class="btn btn-gold">Ver Material de Lectura</a>
+            <a href="#herramientas" class="btn btn-sim">Módulo de Herramientas</a>
+            <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-donate">Inscribirse / Donar</a>
+          </div>
+        </div>
+
+        <div class="course-banner-card">
+          <img src="2GMaquinaria_Heideck.2026.jpg" alt="Curso Valuación de Máquinas y Equipos Industriales" class="banner-art">
+          <div class="metadata-strip">
+            <div><strong>Profesor:</strong> M.Sc. Miguel Camacaro P.</div>
+            <div><strong>Duración:</strong> Dos horas académicas</div>
+            <div><strong>Modalidad:</strong> Online / Aforo Limitado</div>
+            <div><strong>Certificado:</strong> Miguel Camacaro Ediciones</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools & Multimedia Section -->
+    <section class="section-block" id="herramientas">
+      <div class="container">
+        <div class="section-head">
+          <h2>Módulo de Herramientas & Videos</h2>
+          <p>Plataformas de simulación interactiva, recursos de cálculo normativo y ponencias audiovisuales del curso.</p>
+        </div>
+
+        <div class="tools-grid">
+          <a href="https://mundo-valor.github.io/Simulamaq-heideck2026" target="_blank" rel="noopener noreferrer" class="tool-card">
+            <div>
+              <h4>Simulador Heideck 2026</h4>
+              <p>Simulador interactivo del procedimiento de Erich Heideck para estimar el valor actual (Zeitwert) de maquinaria e instalaciones.</p>
+            </div>
+            <span class="tool-btn">Abrir Simulador ➔</span>
+          </a>
+
+          <a href="https://mundo-valor.github.io/maquinaria-09412026" target="_blank" rel="noopener noreferrer" class="tool-card">
+            <div>
+              <h4>Módulo Maquinaria 0941</h4>
+              <p>Herramienta especializada para la estimación de valor de maquinaria y equipos según lineamientos de normativas vigentes.</p>
+            </div>
+            <span class="tool-btn">Acceder al Módulo ➔</span>
+          </a>
+
+          <a href="https://mundo-valor.github.io/const-maq.d0912026" target="_blank" rel="noopener noreferrer" class="tool-card">
+            <div>
+              <h4>Construcción de Maquinaria</h4>
+              <p>Informe técnico de cálculo y estimación paramétrica aplicada a estructuras industriales y componentes mecánicos.</p>
+            </div>
+            <span class="tool-btn">Consultar Módulo ➔</span>
+          </a>
+
+          <a href="https://mundo-valor.github.io/maquina-moduloheideck100/" target="_blank" rel="noopener noreferrer" class="tool-card">
+            <div>
+              <h4>Simulador Heideck 100</h4>
+              <p>Plataforma avanzada de entrenamiento y entrenamiento pericial con curvas digitalizadas de las tablas originales.</p>
+            </div>
+            <span class="tool-btn">Iniciar Módulo ➔</span>
+          </a>
+        </div>
+
+        <!-- Videos Section -->
+        <div class="videos-grid">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/MyT6oJpvd64" title="Video del Curso 1" allowfullscreen></iframe>
+          </div>
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/kHA59-lhFMg" title="Video del Curso 2" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About the Author -->
+    <section class="section-block" id="autor">
+      <div class="container">
+        <div class="author-card">
+          <div class="author-photo-frame">
+            <img 
+              src="Informal 3_2.png" 
+              alt="Prof. M.Sc. Miguel Camacaro Pérez"
+              onerror="this.onerror=null; this.src='Informal 3_3.png';">
+          </div>
+          <div class="author-info">
+            <h3>PROF. M.SC. MIGUEL CAMACARO PÉREZ</h3>
+            <div class="degree">Ingeniero Civil - Tasador • Especialista en Valuación de Maquinaria y Equipos Industriales</div>
+            <p class="author-bio">
+              Apasionado de la Ciencia de la Valuación, la Ciencia de Datos y la Inteligencia Artificial Generativa. Comprometido con la modernización de los flujos de trabajo de los valuadores, recuperando y rectificando la historia técnica para dotar a los profesionales de herramientas fiables fundamentadas en fuentes primarias.
+            </p>
+            <div class="dedication-box">
+              <strong>Contacto institucional:</strong> cursoediciones@gmail.com • Miguel Camacaro Ediciones & Mundo Valor.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Multi-Document Online Reader Viewport -->
+    <section class="reader-section" id="lector">
+      <div class="container">
+        <div class="reader-frame" id="reader-box">
+          <!-- Loader -->
+          <div class="reader-loader" id="loader">
+            <div class="spinner"></div>
+            <p style="color:var(--accent-gold); font-family:var(--font-title); font-size:1.1rem;">Cargando documento de lectura...</p>
+          </div>
+
+          <!-- Toolbar -->
+          <div class="reader-toolbar">
+            <div class="reader-doc-switch">
+              <button class="btn btn-gold" id="doc-btn-1" onclick="switchDocument('1. Información del curso.pdf', 1)">1. Información del Curso</button>
+              <button class="btn btn-outline" id="doc-btn-2" onclick="switchDocument('2. MV Maquinaria_Heideck.2026.pdf', 2)">2. Presentación Magistral</button>
+              <button class="btn btn-outline" id="doc-btn-3" onclick="switchDocument('3. Libro Maquinaria Heideck.pdf', 3)">3. Documento Técnico Heideck</button>
+            </div>
+            <div class="reader-controls-group">
+              <button class="btn btn-outline" style="padding:0.4rem 0.8rem;" onclick="toggleViewMode()" id="view-mode-btn">📄 Página Simple</button>
+              <button class="btn btn-outline" style="padding:0.4rem 0.8rem;" onclick="zoom(-0.15)">🔍 -</button>
+              <span class="zoom-label" id="zoom-text">140%</span>
+              <button class="btn btn-outline" style="padding:0.4rem 0.8rem;" onclick="zoom(0.15)">🔍 +</button>
+              <button class="btn btn-outline" style="padding:0.4rem 0.8rem;" onclick="toggleFullscreen()">⛶ Pantalla Completa</button>
+            </div>
+          </div>
+
+          <!-- Stage with Large Format Scroll -->
+          <div class="reader-stage" id="reader-viewport">
+            <div class="book-spread double-mode" id="spread-box">
+              <canvas id="canvas-l" class="page-canvas"></canvas>
+              <canvas id="canvas-r" class="page-canvas"></canvas>
+            </div>
+          </div>
+
+          <!-- Footer Toolbar -->
+          <div class="reader-footer">
+            <button class="btn btn-outline" id="prev-btn" onclick="prevSpread()">◀ Anterior</button>
+            <div style="color:var(--accent-gold); font-weight:700; font-size:0.95rem;" id="page-num-indicator">
+              Cargando páginas...
+            </div>
+            <button class="btn btn-gold" id="next-btn" onclick="nextSpread()">Siguiente ▶</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p><strong>Valuación de Maquinaria, Equipos e Instalaciones Mecánicas</strong> — © 2026 Miguel Camacaro Pérez</p>
+      <p style="margin-top:0.4rem; opacity:0.7;">Publicación técnica y académica de <strong>Miguel Camacaro Ediciones</strong> • Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // PDF.js Configuration
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    let currentPdfUrl = '1. Información del curso.pdf';
+    let pdfDoc = null;
+    let currentLeftPage = 1;
+    let currentScale = 1.40;
+    let isSinglePageMode = false;
+    let isRendering = false;
+
+    function loadDocument(url) {
+      document.getElementById('loader').style.display = 'flex';
+      document.getElementById('loader').style.opacity = '1';
+      pdfjsLib.getDocument(url).promise.then(pdf => {
+        pdfDoc = pdf;
+        currentLeftPage = 1;
+        document.getElementById('loader').style.opacity = '0';
+        setTimeout(() => document.getElementById('loader').style.display = 'none', 300);
+        renderSpread(currentLeftPage);
+      }).catch(err => {
+        console.error("Error al cargar el archivo PDF:", err);
+        document.getElementById('loader').innerHTML = `
+          <p style="color:#ef4444; font-weight:700;">Imposible cargar el documento.</p>
+          <p style="color:#94a3b8; font-size:0.85rem; margin-top:0.4rem;">Verifique que el archivo <strong>${url}</strong> esté en el directorio principal.</p>
+        `;
+      });
+    }
+
+    function switchDocument(url, docIndex) {
+      currentPdfUrl = url;
+      for(let i=1; i<=3; i++) {
+        const btn = document.getElementById(`doc-btn-${i}`);
+        if(i === docIndex) {
+          btn.className = 'btn btn-gold';
+        } else {
+          btn.className = 'btn btn-outline';
+        }
+      }
+      loadDocument(url);
+    }
+
+    // Initial Load
+    loadDocument(currentPdfUrl);
+
+    // Render Individual Page with HD Support
+    function renderPage(pageNum, canvasId) {
+      return new Promise((resolve) => {
+        const canvas = document.getElementById(canvasId);
+        const ctx = canvas.getContext('2d');
+
+        if (!pdfDoc || pageNum > pdfDoc.numPages || pageNum < 1) {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          canvas.style.display = 'none';
+          resolve();
+          return;
+        }
+
+        canvas.style.display = 'block';
+        pdfDoc.getPage(pageNum).then(page => {
+          const viewport = page.getViewport({ scale: currentScale });
+          
+          const outputScale = window.devicePixelRatio || 1;
+          canvas.width = Math.floor(viewport.width * outputScale);
+          canvas.height = Math.floor(viewport.height * outputScale);
+          canvas.style.width = Math.floor(viewport.width) + "px";
+          canvas.style.height = Math.floor(viewport.height) + "px";
+
+          const transform = outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : null;
+
+          const renderContext = {
+            canvasContext: ctx,
+            transform: transform,
+            viewport: viewport
+          };
+          page.render(renderContext).promise.then(() => resolve());
+        });
+      });
+    }
+
+    // Render Spread or Single Page
+    function renderSpread(leftPage) {
+      if (!pdfDoc || isRendering) return;
+      isRendering = true;
+      const isMobile = window.innerWidth <= 900 || isSinglePageMode;
+      const spreadBox = document.getElementById('spread-box');
+
+      if (isMobile) {
+        spreadBox.classList.remove('double-mode');
+      } else {
+        spreadBox.classList.add('double-mode');
+      }
+
+      const p1 = renderPage(leftPage, 'canvas-l');
+      const p2 = !isMobile ? renderPage(leftPage + 1, 'canvas-r') : Promise.resolve();
+
+      Promise.all([p1, p2]).then(() => {
+        isRendering = false;
+        const rightPage = isMobile ? leftPage : Math.min(leftPage + 1, pdfDoc.numPages);
+
+        document.getElementById('page-num-indicator').innerText = isMobile 
+          ? `Pág. PDF: ${leftPage} / ${pdfDoc.numPages}` 
+          : `Págs. PDF: ${leftPage} – ${rightPage} / ${pdfDoc.numPages}`;
+
+        document.getElementById('prev-btn').disabled = leftPage <= 1;
+        document.getElementById('next-btn').disabled = isMobile 
+          ? leftPage >= pdfDoc.numPages 
+          : leftPage + 1 >= pdfDoc.numPages;
+
+        document.getElementById('zoom-text').innerText = Math.round(currentScale * 100) + '%';
+      });
+    }
+
+    function nextSpread() {
+      if (!pdfDoc || isRendering) return;
+      const step = (window.innerWidth <= 900 || isSinglePageMode) ? 1 : 2;
+      if (currentLeftPage + step <= pdfDoc.numPages) {
+        currentLeftPage += step;
+        renderSpread(currentLeftPage);
+      }
+    }
+
+    function prevSpread() {
+      if (!pdfDoc || isRendering) return;
+      const step = (window.innerWidth <= 900 || isSinglePageMode) ? 1 : 2;
+      if (currentLeftPage - step >= 1) {
+        currentLeftPage -= step;
+        renderSpread(currentLeftPage);
+      } else if (currentLeftPage > 1) {
+        currentLeftPage = 1;
+        renderSpread(currentLeftPage);
+      }
+    }
+
+    function zoom(delta) {
+      currentScale = Math.min(Math.max(currentScale + delta, 0.8), 3.0);
+      renderSpread(currentLeftPage);
+    }
+
+    function toggleViewMode() {
+      isSinglePageMode = !isSinglePageMode;
+      document.getElementById('view-mode-btn').innerText = isSinglePageMode ? '📖 Página Doble' : '📄 Página Simple';
+      renderSpread(currentLeftPage);
+    }
+
+    function toggleFullscreen() {
+      const elem = document.getElementById('reader-box');
+      if (!document.fullscreenElement) {
+        elem.requestFullscreen().catch(err => alert(`Error en pantalla completa: ${err.message}`));
+      } else {
+        document.exitFullscreen();
+      }
+    }
+
+    // Keyboard Shortcuts
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextSpread();
+      if (e.key === 'ArrowLeft') prevSpread();
+      if (e.key === '+' || e.key === '=') zoom(0.15);
+      if (e.key === '-' || e.key === '_') zoom(-0.15);
+    });
+
+    window.addEventListener('resize', () => {
+      renderSpread(currentLeftPage);
+    });
+  </script>
+</body>
+</html>
